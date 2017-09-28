@@ -6,7 +6,9 @@ from math import exp, log
 from gbdt.tree import construct_decision_tree
 
 
-class RegressionLossFunction(metaclass=abc.ABCMeta):
+class RegressionLossFunction(object):
+    __metaclass__ = abc.ABCMeta
+
     def __init__(self, n_classes):
         self.K = n_classes
 
@@ -62,7 +64,9 @@ class LeastSquaresError(RegressionLossFunction):
         return sum1/len(idset)
 
 
-class ClassificationLossFunction(metaclass=abc.ABCMeta):
+class ClassificationLossFunction(object):
+    __metaclass__ = abc.ABCMeta
+
     """分类损失函数的基类"""
     def __init__(self, n_classes):
         self.K = n_classes
